@@ -111,7 +111,7 @@ static func getChildrenWithClass(node:Node,className:String,includeInternal:=fal
 	return ret
 
 ## Uses [method getDescendants] to return a [Array] of descendants with specified class name.
-static func getDescentandsWithClass(node:Node,className:String,includeInternal:= false) -> Array:
+static func getDescendandsWithClass(node:Node,className:String,includeInternal:= false) -> Array:
 	var ret = []
 	for i in getDescendants(node,includeInternal):
 		if i.get_class() == className:
@@ -120,7 +120,7 @@ static func getDescentandsWithClass(node:Node,className:String,includeInternal:=
 
 ## Uses [method getDescendants] to return a [Array] of descendants with specified name. [br]
 ## NOTE: There's no getChildrenWithName because a node can't contain 2 nodes with the same name.
-static func getDescentandsWithName(node:Node,name:String,includeInternal:= false) -> Array:
+static func getDescenandsWithName(node:Node,name:String,includeInternal:= false) -> Array:
 	var ret = []
 	for i in getDescendants(node,includeInternal):
 		if i.name == name:
@@ -130,13 +130,13 @@ static func getDescentandsWithName(node:Node,name:String,includeInternal:= false
 ## Uses [method getDescendants] to return the first descendant with specicified name. [br]
 ## NOTE: There's no findFirstChildWithName because a node can't contain 2 nodes with the same name.
 static func findFirstDescendantWithName(node:Node,name:String, includeInternal:= false) -> Node:
-	var arr = getDescentandsWithName(node,name,includeInternal)
+	var arr = getDescenandsWithName(node,name,includeInternal)
 	if arr.size()!=0: return arr[0]
 	return null
 
 ## Uses [method getDescendants] to return the first descendant with specicified class name.
 static func findFirstDescendantWithClass(node:Node,className:String, includeInternal:= false) -> Node:
-	var arr = getDescentandsWithClass(node,className,includeInternal)
+	var arr = getDescendandsWithClass(node,className,includeInternal)
 	if arr.size()!=0: return arr[0]
 	return null
 
