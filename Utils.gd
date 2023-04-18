@@ -47,17 +47,7 @@ static func negativeOrPositive(number,range:int=1):
 	if trueOrFalse(range): return -number
 	return number
 
-## Returns a positive version of given number if smaller than 0. Otherwise returns the same value.[br]
-## Example: [code]positive(-1)[/code] will return 1. [code]positive(1)[/code] will also return 1.
-static func positive(number):
-	if number >= 0: return number
-	return -number
 
-## Returns a negative version of given number if bigger than 0. Otherwise returns the same value.[br]
-## Example: [code]negative(1)[/code] will return -1. [code]negative(-1)[/code] will also return -1.
-static func negative(number):
-	if number<0: return number
-	return -number
 
 ## Moves a number to the 0 value with the given amount no matter if it's positive or negative. [br]
 ## [b]Examples:[/b]
