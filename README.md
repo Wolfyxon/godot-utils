@@ -1,5 +1,5 @@
 # godot-utils
-A static class with many useful functions for Godot 4 written in GDScript.
+A static class with many useful functions for Godot 4 written in GDScript with a nice documentation.
 ## Instalation
 Just place the `Utils.gd` script anywhere in your Godot project's folder and you're good to go! (No need to use singletons)
 ## Usage
