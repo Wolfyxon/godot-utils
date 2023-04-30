@@ -68,6 +68,13 @@ static func moveToZero(number,amt):
 	if number < 0: return clamp(number+amt,number,0)
 	return number
 
+## Returns a random Vector2 within the given range
+static func randVec2(range:float):
+	return Vector2(
+		rand(-range,range),
+		rand(-range,range)
+	)
+
 ## Returns a random position around given Vector2 within the given range.
 static func randVec2Around(center:Vector2,range:float,minRange:float = 0) -> Vector2:
 	var x = negativeOrPositive( rand(minRange,range) )
