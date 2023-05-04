@@ -89,6 +89,21 @@ static func coUtipyDict(dict:Dictionary) -> Dictionary:
 	return ret
 
 
+## Gets all node's ancestors in tree into a single [Array]
+static func getAncestors(node:Node) -> Array[Node]:
+	var res:Array[Node] = []
+	var current_node = node
+	while current_node.get_parent():
+		res.append(current_node.get_parent())
+		current_node = current_node.get_parent()
+	return res
+
+## Get's Node's ancestor at specified index
+static func nthAncestor(node:Node,index:int) -> Node:
+	var ancestors = getAncestors(node)
+	if ancestors.size() < index+1: return null
+	return ancestors[index]
+
 ## Gets a whole node's tree in a single [Array]. See also [code]includeInternal[/code] in [method Node.get_children].
 static func getDescendants(node:Node,includeInternal:=false) -> Array:
 	var res = []
