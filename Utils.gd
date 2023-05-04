@@ -114,6 +114,12 @@ static func getDescendants(node:Node,includeInternal:=false) -> Array:
 		
 	return res
 
+## Get's Node's descendant at specified index
+static func nthDescendant(node:Node,index:int) -> Node:
+	var descendants = getDescendants(node)
+	if descendants.size() < index+1: return null
+	return descendants[index]
+
 ## Returns a [Array] of children with specified class name.
 static func getChildrenWithClass(node:Node,className:String,includeInternal:=false) -> Array:
 	var ret = []
