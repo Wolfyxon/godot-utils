@@ -105,8 +105,8 @@ static func nthAncestor(node:Node,index:int) -> Node:
 	return ancestors[index]
 
 ## Gets a whole node's tree in a single [Array]. See also [code]includeInternal[/code] in [method Node.get_children].
-static func getDescendants(node:Node,includeInternal:=true) -> Array:
-	var res = []
+static func getDescendants(node:Node,includeInternal:=true) -> Array[Node]:
+	var res:Array[Node] = []
 	for child in node.get_children(includeInternal):
 		if node.get_child_count(includeInternal) > 0:
 			res.append_array( getDescendants(child,includeInternal) )
@@ -122,7 +122,7 @@ static func nthDescendant(node:Node,index:int) -> Node:
 
 ## Returns a [Array] of children with specified class name.
 static func getChildrenWithClass(node:Node,className:String,includeInternal:=true) -> Array[Node]:
-	var ret = []
+	var ret:Array[Node] = []
 	for i in node.get_children(includeInternal):
 		if i.get_class() == className:
 			ret.append(i)
@@ -130,7 +130,7 @@ static func getChildrenWithClass(node:Node,className:String,includeInternal:=tru
 
 ## Uses [method getDescendants] to return a [Array] of descendants with specified class name.
 static func getDescendandsWithClass(node:Node,className:String,includeInternal:= true) -> Array[Node]:
-	var ret = []
+	var ret:Array[Node] = []
 	for i in getDescendants(node,includeInternal):
 		if i.get_class() == className:
 			ret.append(i)
@@ -139,7 +139,7 @@ static func getDescendandsWithClass(node:Node,className:String,includeInternal:=
 ## Uses [method getDescendants] to return a [Array] of descendants with specified name. [br]
 ## NOTE: There's no getChildrenWithName because a node can't contain 2 nodes with the same name.
 static func getDescenandsWithName(node:Node,name:String,includeInternal:= true) -> Array[Node]:
-	var ret = []
+	var ret:Array[Node] = []
 	for i in getDescendants(node,includeInternal):
 		if i.name == name:
 			ret.append(i)
@@ -167,7 +167,7 @@ static func findFirstChildWithClass(node:Node,className:String, includeInternal:
 ## Uses [method getDescendants] to return a [Array] of all node's descendants with the specified group. [br]
 ## Alternative to [method SceneTree.get_nodes_in_group] that limits to only one specific node.
 static func getNodesInGroup(node:Node,groupName:String,includeInternal:=true) -> Array[Node]:
-	var ret = []
+	var ret:Array[Node] = []
 	for i in getDescendants(node,includeInternal):
 		if i.is_in_group(groupName): ret.append(i)
 	
