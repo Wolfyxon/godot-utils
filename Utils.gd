@@ -121,7 +121,7 @@ static func nthDescendant(node:Node,index:int) -> Node:
 	return descendants[index]
 
 ## Returns a [Array] of children with specified class name.
-static func getChildrenWithClass(node:Node,className:String,includeInternal:=true) -> Array:
+static func getChildrenWithClass(node:Node,className:String,includeInternal:=true) -> Array[Node]:
 	var ret = []
 	for i in node.get_children(includeInternal):
 		if i.get_class() == className:
@@ -129,7 +129,7 @@ static func getChildrenWithClass(node:Node,className:String,includeInternal:=tru
 	return ret
 
 ## Uses [method getDescendants] to return a [Array] of descendants with specified class name.
-static func getDescendandsWithClass(node:Node,className:String,includeInternal:= true) -> Array:
+static func getDescendandsWithClass(node:Node,className:String,includeInternal:= true) -> Array[Node]:
 	var ret = []
 	for i in getDescendants(node,includeInternal):
 		if i.get_class() == className:
@@ -138,7 +138,7 @@ static func getDescendandsWithClass(node:Node,className:String,includeInternal:=
 
 ## Uses [method getDescendants] to return a [Array] of descendants with specified name. [br]
 ## NOTE: There's no getChildrenWithName because a node can't contain 2 nodes with the same name.
-static func getDescenandsWithName(node:Node,name:String,includeInternal:= true) -> Array:
+static func getDescenandsWithName(node:Node,name:String,includeInternal:= true) -> Array[Node]:
 	var ret = []
 	for i in getDescendants(node,includeInternal):
 		if i.name == name:
@@ -166,7 +166,7 @@ static func findFirstChildWithClass(node:Node,className:String, includeInternal:
 
 ## Uses [method getDescendants] to return a [Array] of all node's descendants with the specified group. [br]
 ## Alternative to [method SceneTree.get_nodes_in_group] that limits to only one specific node.
-static func getNodesInGroup(node:Node,groupName:String,includeInternal:=true) -> Array:
+static func getNodesInGroup(node:Node,groupName:String,includeInternal:=true) -> Array[Node]:
 	var ret = []
 	for i in getDescendants(node,includeInternal):
 		if i.is_in_group(groupName): ret.append(i)
