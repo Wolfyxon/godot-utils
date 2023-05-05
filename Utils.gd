@@ -31,22 +31,10 @@ static func randInt(minimum:float,maximum:float) -> int: return int( round( rand
 ## 
 static func trueOrFalse(range:int=1) -> bool: return randInt(0,range)==0
 
-## Uses [method randInt] to return a random element from a [Array].[br]
-## [b]Example:[/b]
-## [codeblock]
-## var greetings = ["Hi","Hello","Nice to see you","Welcome","What's up"]
-## func greet():
-##     print( Utils.randChoice(greetings) )
-## [/codeblock]
-static func randChoice(array:Array):
-	if array.size() == 0: return null
-	return array[ randInt(0,array.size()-1) ]
-
 ## Uses [method Utils.trueOrFalse] to return negative or positive version of given number with a given range (default 1, bigger the range, smaller the chance for flip the number).
 static func negativeOrPositive(number,range:int=1):
 	if trueOrFalse(range): return -number
 	return number
-
 
 
 ## Moves a number to the 0 value with the given amount no matter if it's positive or negative. [br]
