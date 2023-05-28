@@ -10,6 +10,24 @@
 extends Object
 class_name Utils
 
+## Returns a rounded integer. Use this instead of [method roundi] and [method round] if you want to round an integer. [br]
+## [b]Example results[/b] [br]
+## [method Utils.roundTen]
+## [codeblock]
+## roundTen(3) == 0
+## roundTen(1) == 0
+## roundTen(5) == 10
+## roundTen(16) == 20
+## [/codeblock] [br]
+## [method roundi]
+## [codeblock]
+## roundi(6) == 6
+## roundi(2) == 2
+## roundi(11) == 11
+## [/codeblock]
+static func roundTen(i: int):
+	return 10 * roundi(i / 10.0)
+
 ## Returns a random float number from min to max.
 static func rand(minimum:float,maximum:float) -> float:
 	var randgen = RandomNumberGenerator.new()
