@@ -126,6 +126,10 @@ static func nthDescendant(node:Node,index:int) -> Node:
 	if descendants.size() < index+1: return null
 	return descendants[index]
 
+## Checks if a Node is an ancestor of another Node.
+static func isDescendantOf(possibleDescendant:Node,possibleAncestor:Node):
+	return possibleDescendant in getDescendants(possibleAncestor)
+
 ## Returns a [Array] of children with specified class name.
 static func getChildrenWithClass(node:Node,className:String,includeInternal:=true) -> Array[Node]:
 	var ret:Array[Node] = []
