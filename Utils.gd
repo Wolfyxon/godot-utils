@@ -88,7 +88,7 @@ static func randVec2Around(center:Vector2,range:float,minRange:float = 0) -> Vec
 	return Vector2( x,y )
 
 ## Makes a copy of a [Dictionary]. Use this instead of [code]dictA = dictB[/code] to prevent the dictionaries from synchronizing changes.
-static func coUtipyDict(dict:Dictionary) -> Dictionary:
+static func copyDict(dict:Dictionary) -> Dictionary:
 	var ret = {}
 	for i in dict:
 		ret[i] = dict[i]
@@ -125,10 +125,6 @@ static func nthDescendant(node:Node,index:int) -> Node:
 	var descendants = getDescendants(node)
 	if descendants.size() < index+1: return null
 	return descendants[index]
-
-## Checks if a Node is an ancestor of another Node.
-static func isDescendantOf(possibleDescendant:Node,possibleAncestor:Node):
-	return possibleDescendant in getDescendants(possibleAncestor)
 
 ## Returns a [Array] of children with specified class name.
 static func getChildrenWithClass(node:Node,className:String,includeInternal:=true) -> Array[Node]:
