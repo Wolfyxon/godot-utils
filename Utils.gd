@@ -94,6 +94,10 @@ static func copyDict(dict:Dictionary) -> Dictionary:
 		ret[i] = dict[i]
 	return ret
 
+## Safely gets value form array at index. Returns null if the array is out of bounds
+static func safeIndex(array:Array,index:int):
+	if array.size()-1 < index: return
+	return array[index]
 
 ## Gets all node's ancestors in tree into a single [Array]
 static func getAncestors(node:Node) -> Array[Node]:
